@@ -83,7 +83,7 @@ effectObject.onEffectTick = function(target, effect)
 
     -- Searing Ward Tether is set and reset in zone onTriggerAreaLeave and
     -- onTriggerAreaEnter.
-    if target:getLocalVar('tetherTimer') == 11 then
+    if target:getLocalVar('tetherTimer') > 0 then
         xi.abyssea.searingWardTimer(target)
     end
 
@@ -98,6 +98,9 @@ end
 effectObject.onEffectLose = function(target, effect)
     local zoneID = target:getZoneID()
     local ID = zones[zoneID]
+
+    target:printToPlayer(getLocalVar('gameLogin'))
+    target:printToPlayer(xi.abyssea.isInAbysseaZone(target))
 
     if
         target:getLocalVar('gameLogin') == 0 and
