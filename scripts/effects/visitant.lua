@@ -15,6 +15,10 @@ reportTimeRemaining = function(player, effect)
     local messageParam = 0
     local nextTimeReport = 0
 
+    player:printToPlayer(getLocalVar('gameLogin'))
+    player:printToPlayer(xi.abyssea.isInAbysseaZone(target))
+    player:printToPlayer(getLocalVar('finalCountdown'))
+
     -- All possible forms of TE will reset out of the final two minute warning,
     -- reset this here.
     if currentTime > lastTimeUpdate then
@@ -52,6 +56,7 @@ reportTimeRemaining = function(player, effect)
 
     -- Handle the more granular countdown, as effect ticks are only every
     -- three seconds.
+
     if player:getLocalVar('finalCountdown') == 1 then
         if messageParam > 0 then
             local timerVal = (messageParam - nextTimeReport) * 1000
@@ -74,6 +79,9 @@ effectObject.onEffectGain = function(target, effect)
     effect:addEffectFlag(xi.effectFlag.HIDE_TIMER)
 
     target:setLocalVar('lastTimeUpdate', effect:getTimeRemaining() / 1000 + 1)
+
+    target:printToPlayer(getLocalVar('gameLogin'))
+    target:printToPlayer(xi.abyssea.isInAbysseaZone(target))
 end
 
 effectObject.onEffectTick = function(target, effect)
