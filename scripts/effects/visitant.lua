@@ -15,12 +15,6 @@ reportTimeRemaining = function(player, effect)
     local messageParam = 0
     local nextTimeReport = 0
 
-    player:printToPlayer('------- reportTimeRemaining ---------',xi.msg.channel.NS_SAY)
-    player:printToPlayer(string.format('gameLogin: %s', player:getLocalVar('gameLogin')), xi.msg.channel.NS_SAY)
-    player:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(player)), xi.msg.channel.NS_SAY)
-    player:printToPlayer(string.format('finalCountdown: %s', player:getLocalVar('finalCountdown')), xi.msg.channel.NS_SAY)
-    player:printToPlayer('------- reportTimeRemaining ---------',xi.msg.channel.NS_SAY)
-
     -- All possible forms of TE will reset out of the final two minute warning,
     -- reset this here.
     if currentTime > lastTimeUpdate then
@@ -81,12 +75,6 @@ effectObject.onEffectGain = function(target, effect)
     effect:addEffectFlag(xi.effectFlag.HIDE_TIMER)
 
     target:setLocalVar('lastTimeUpdate', effect:getTimeRemaining() / 1000 + 1)
-
-    target:printToPlayer('------- onEffectGain ---------',xi.msg.channel.NS_SAY)
-    target:printToPlayer(string.format('gameLogin: %s', target:getLocalVar('gameLogin')), xi.msg.channel.NS_SAY)
-    target:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(target)), xi.msg.channel.NS_SAY)
-    target:printToPlayer(string.format('finalCountdown: %s', target:getLocalVar('finalCountdown')), xi.msg.channel.NS_SAY)
-    target:printToPlayer('------- onEffectGain ---------',xi.msg.channel.NS_SAY)
 end
 
 effectObject.onEffectTick = function(target, effect)
@@ -111,12 +99,6 @@ end
 effectObject.onEffectLose = function(target, effect)
     local zoneID = target:getZoneID()
     local ID = zones[zoneID]
-
-    target:printToPlayer('------- onEffectLose ---------',xi.msg.channel.NS_SAY)
-    target:printToPlayer(string.format('gameLogin: %s', target:getLocalVar('gameLogin')), xi.msg.channel.NS_SAY)
-    target:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(target)), xi.msg.channel.NS_SAY)
-    target:printToPlayer(string.format('finalCountdown: %s', target:getLocalVar('finalCountdown')), xi.msg.channel.NS_SAY)
-    target:printToPlayer('------- onEffectLose ---------',xi.msg.channel.NS_SAY)
 
     if
         target:getLocalVar('gameLogin') == 0 and
