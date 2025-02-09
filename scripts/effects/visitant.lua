@@ -15,9 +15,9 @@ reportTimeRemaining = function(player, effect)
     local messageParam = 0
     local nextTimeReport = 0
 
-    player:printToPlayer(getLocalVar('gameLogin'))
+    player:printToPlayer(player:getLocalVar('gameLogin'))
     player:printToPlayer(xi.abyssea.isInAbysseaZone(target))
-    player:printToPlayer(getLocalVar('finalCountdown'))
+    player:printToPlayer(player:getLocalVar('finalCountdown'))
 
     -- All possible forms of TE will reset out of the final two minute warning,
     -- reset this here.
@@ -80,7 +80,7 @@ effectObject.onEffectGain = function(target, effect)
 
     target:setLocalVar('lastTimeUpdate', effect:getTimeRemaining() / 1000 + 1)
 
-    target:printToPlayer(getLocalVar('gameLogin'))
+    target:printToPlayer(target:getLocalVar('gameLogin'))
     target:printToPlayer(xi.abyssea.isInAbysseaZone(target))
 end
 
@@ -107,7 +107,7 @@ effectObject.onEffectLose = function(target, effect)
     local zoneID = target:getZoneID()
     local ID = zones[zoneID]
 
-    target:printToPlayer(getLocalVar('gameLogin'))
+    target:printToPlayer(target:getLocalVar('gameLogin'))
     target:printToPlayer(xi.abyssea.isInAbysseaZone(target))
 
     if
