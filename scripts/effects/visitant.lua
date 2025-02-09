@@ -15,11 +15,11 @@ reportTimeRemaining = function(player, effect)
     local messageParam = 0
     local nextTimeReport = 0
 
-    target:printToPlayer('------- reportTimeRemaining ---------')
+    player:printToPlayer('------- reportTimeRemaining ---------')
     player:printToPlayer(string.format('gameLogin: %s', player:getLocalVar('gameLogin'))
     player:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(player))
     player:printToPlayer(string.format('finalCountdown: %s', player:getLocalVar('finalCountdown'))
-    target:printToPlayer('------- reportTimeRemaining ---------')
+    player:printToPlayer('------- reportTimeRemaining ---------')
 
     -- All possible forms of TE will reset out of the final two minute warning,
     -- reset this here.
