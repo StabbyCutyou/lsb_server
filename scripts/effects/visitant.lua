@@ -16,9 +16,9 @@ reportTimeRemaining = function(player, effect)
     local nextTimeReport = 0
 
     player:printToPlayer('------- reportTimeRemaining ---------')
-    player:printToPlayer(string.format('gameLogin: %s', player:getLocalVar('gameLogin'))
-    player:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(player))
-    player:printToPlayer(string.format('finalCountdown: %s', player:getLocalVar('finalCountdown'))
+    player:printToPlayer(string.format('gameLogin: %s', player:getLocalVar('gameLogin')))
+    player:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(player)))
+    player:printToPlayer(string.format('finalCountdown: %s', player:getLocalVar('finalCountdown')))
     player:printToPlayer('------- reportTimeRemaining ---------')
 
     -- All possible forms of TE will reset out of the final two minute warning,
@@ -83,9 +83,9 @@ effectObject.onEffectGain = function(target, effect)
     target:setLocalVar('lastTimeUpdate', effect:getTimeRemaining() / 1000 + 1)
 
     target:printToPlayer('------- onEffectGain ---------')
-    target:printToPlayer(string.format('gameLogin: %s', target:getLocalVar('gameLogin'))
-    target:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(target))
-    target:printToPlayer(string.format('finalCountdown: %s', target:getLocalVar('finalCountdown'))
+    target:printToPlayer(string.format('gameLogin: %s', target:getLocalVar('gameLogin')))
+    target:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(target)))
+    target:printToPlayer(string.format('finalCountdown: %s', target:getLocalVar('finalCountdown')))
     target:printToPlayer('------- onEffectGain ---------')
 end
 
@@ -113,9 +113,9 @@ effectObject.onEffectLose = function(target, effect)
     local ID = zones[zoneID]
 
     target:printToPlayer('------- onEffectLose ---------')
-    target:printToPlayer(string.format('gameLogin: %s', target:getLocalVar('gameLogin'))
-    target:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(target))
-    target:printToPlayer(string.format('finalCountdown: %s', target:getLocalVar('finalCountdown'))
+    target:printToPlayer(string.format('gameLogin: %s', target:getLocalVar('gameLogin')))
+    target:printToPlayer(string.format('isInAbysseaZone: %s', xi.abyssea.isInAbysseaZone(target)))
+    target:printToPlayer(string.format('finalCountdown: %s', target:getLocalVar('finalCountdown')))
     target:printToPlayer('------- onEffectLose ---------')
 
     if
