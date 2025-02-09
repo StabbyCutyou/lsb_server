@@ -149,6 +149,9 @@ end
 
 -- called by core after a player logs into the server or zones
 xi.player.onGameIn = function(player, firstLogin, zoning)
+    player:printToPlayer('------- onGameIn ---------')
+    target:printToPlayer(string.format('zoning: %s', zoning))
+    player:printToPlayer('------- onGameIn ---------')
     if not zoning then
         -- things checked ONLY during logon go here
         if firstLogin then
